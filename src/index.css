@@ -91,6 +91,10 @@ body {
   flex-wrap: nowrap;
 }
 
+/*margin-bottom: 0px; 
+from margin-bottom: -100px;
+  overflow: hidden;
+  z-index: 1; */
 .techstack {
   width: 100%;
   position: relative;
@@ -98,7 +102,10 @@ body {
   margin: auto;
   margin-top: 50px;
   margin-bottom: -100px;
+ 
 }
+
+
 
 .techstack h2 {
   font-size: 80px;

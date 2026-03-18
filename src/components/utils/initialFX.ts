@@ -1,10 +1,12 @@
-import { SplitText } from "gsap-trial/SplitText";
+// import { SplitText } from "gsap-trial/SplitText"; // trial plugin removed
+import { SplitText } from "./splitText";
 import gsap from "gsap";
-import { smoother } from "../Navbar";
+// smoother removed — ScrollSmoother was a trial plugin
+// import { smoother } from "../Navbar";
 
 export function initialFX() {
   document.body.style.overflowY = "auto";
-  smoother.paused(false);
+  // smoother.paused(false); // removed with ScrollSmoother
   document.getElementsByTagName("main")[0].classList.add("main-active");
   gsap.to("body", {
     backgroundColor: "#0b080c",

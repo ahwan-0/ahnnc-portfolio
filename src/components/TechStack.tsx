@@ -11,24 +11,60 @@ import {
   RapierRigidBody,
 } from "@react-three/rapier";
 
-const textureLoader = new THREE.TextureLoader();
+/* const textureLoader = new THREE.TextureLoader(); */
 const imageUrls = [
-  "/images/react2.webp",
+  /* "/images/react2.webp",
   "/images/next2.webp",
   "/images/node2.webp",
   "/images/express.webp",
   "/images/mongo.webp",
   "/images/mysql.webp",
   "/images/typescript.webp",
-  "/images/javascript.webp",
+  "/images/javascript.webp", */
+  
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+
 ];
-const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
 const spheres = [...Array(30)].map(() => ({
   scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
-}));
+})); 
+
+
+
+const loadSVGAsTexture = (url: string): THREE.Texture => {
+  const texture = new THREE.Texture();
+  const img = new Image();
+  img.crossOrigin = "anonymous";
+  img.onload = () => {
+    const canvas = document.createElement("canvas");
+    canvas.width = 256;
+    canvas.height = 256;
+    const ctx = canvas.getContext("2d")!;
+
+    const padding = 48;
+    ctx.drawImage(img, padding, padding, 256 - padding * 2, 256 - padding * 2);
+    texture.image = canvas;
+    texture.needsUpdate = true;
+  };
+  img.src = url;
+  return texture;
+};
+const textures = imageUrls.map((url) => loadSVGAsTexture(url));
+
+
+
+
 
 type SphereProps = {
   vec?: THREE.Vector3;
@@ -159,15 +195,16 @@ const TechStack = () => {
           emissive: "#ffffff",
           emissiveMap: texture,
           emissiveIntensity: 0.3,
-          metalness: 0.5,
+          metalness: 0.0,
           roughness: 1,
           clearcoat: 0.1,
+          
         })
     );
   }, []);
 
   return (
-    <div className="techstack">
+    <div className="techstack" style={{ clipPath: "inset(0)" }}>
       <h2> My Techstack</h2>
 
       <Canvas

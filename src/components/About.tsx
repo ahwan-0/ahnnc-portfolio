@@ -6,9 +6,9 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
-          dolores numquam iusto Ratione earum ducimus autem id iure pariatur
-          dolorum quae maiores.
+          I’m into Data Science, Machine Learning, and everything that turns raw chaos into patterns that actually make sense. 
+          
+          I like building models that predict things before they happen and visualizing data like it’s part of a sci-fi interface.
         </p>
       </div>
     </div>
@@ -16,3 +16,4 @@ const About = () => {
 };
 
 export default About;
+

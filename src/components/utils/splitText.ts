@@ -68,7 +68,7 @@ export class SplitText {
       el.appendChild(span);
       if (i < wordSpans.length - 1) {
         const space = document.createElement("span");
-        space.innerHTML = " ";
+        space.innerHTML = "&nbsp;";
         space.style.display = "inline-block";
         el.appendChild(space);
       }

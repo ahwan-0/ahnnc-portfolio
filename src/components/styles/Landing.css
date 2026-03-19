@@ -102,10 +102,10 @@
   bottom: 0;
   z-index: 11;
   position: fixed;
-  right: -10%;
+  right: 0%;
   left: auto;
   transform: none;
-  width: 60%;
+  width: 50%;
 }
 .character-model::after {
   content: "";
